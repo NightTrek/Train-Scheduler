@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>timeshieeet</title>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container mb-2 pb-4">
+        <div class="row">
+            <img src="http://cwrr.com/Stock/new-header.gif" alt="train scheduler">
+        </div>
+    </div>
+    <div class="container">
+        <form action="">
+            <div class="row">
+                <p class="col-sm-2">Train Name</p>
+                <input type="text" class="col-sm-10" id="name" >
+            </div>
+            <div class="row">
+                <p class="col-sm-2">Destination</p>
+                <input type="text" class="col-sm-10" id="destination"></div>
+            <div class="row">
+                <p class="col-sm-2">First Train</p>
+                <input type="text" class="col-sm-10" id="firstTrainTime"></div>
+            <div class="row">
+                <p class="col-sm-2">frequency(min)</p>
+                <input type="text" class="col-sm-10" id="frequency"></div>
+            <div class="row">
+                <p class="col-sm-2">Next Train in:</p>
+                <input type="text" class="col-sm-10" id="minutesAway"></div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <input type="button" class="col-sm-10" value="submit" id="submit"></div>
+
+        </form>
+
+    </div>
+    
+    <div class="container">
+            <hr>
+        <div class="row">
+            <h3>Current Train Schedule</h3>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h5>Train Name</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>Destination</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>First Train</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>Frequency(min)</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>Next Train</h5>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-12" id="TrainData">
+
+            </div>
+            
+        </div>
+        
+    </div>
+    <!-- script tagging -->
+
+    <script src="./assets/javascript/logic.js"></script>
+
+</body>
+
+</html>
