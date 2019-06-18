@@ -25,9 +25,6 @@ var renderCurrentschedule = async function () {
   }else{
   let T = new Train(i, schdule[i].trainData);
   trainArray.push(T);
-    if(id <i){
-      id =i;
-    }
   }
 }
 }
@@ -43,13 +40,6 @@ var calculateNextArrival = function () {
 
 }
 
-var getTrainByID = function (name) {
-
-}
-
-
-
-
 class Train {
   constructor(trainID, TD) {
     if (TD === undefined) {
@@ -59,9 +49,9 @@ class Train {
       let firstTrainTime = $('#firstTrainTime').val();
       let frequency = $('#frequency').val();
       let minutesAway = $('#minutesAway').val();
-      let firstTrain = moment({ hour:firstTrain.splice(0,2), minute:firstTrainTime.splice(2,2) });
-      console.log(firstTrain)
-      this.trainData = { name: name, destination: destination, firsttraintime: firstTrain, frequency: frequency, minAway: minutesAway, logged: false }
+      // let firstTrain = moment({ hour:firstTrain.splice(0,2), minute:firstTrainTime.splice(2,2) });
+      // console.log(firstTrain)
+      this.trainData = { name: name, destination: destination, firsttraintime: firstTrainTime, frequency: frequency, minAway: minutesAway, logged: false }
     } else{
       this.trainData = TD;
     }
@@ -119,15 +109,12 @@ $(document).ready(function () {
 
   $(document).on("click", '#submit', function () {
     console.log('sumbit');
-    console.log(id)
-    id++
-    let T = new Train(id);
+    let T = new Train(trainArray.length);
     trainArray.push(T);
   });
 
   $(document).on('click',".Train", function(){
     let index = $(this).attr('id')
-    id--;
     console.log("removing train");
     if(trainArray[index] !== undefined){
     trainArray[index].removeTrainFromDb(index);
