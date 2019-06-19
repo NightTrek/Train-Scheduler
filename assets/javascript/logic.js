@@ -24,6 +24,7 @@ var renderCurrentschedule = async function () {
     continue;
   }else{
   let T = new Train(i, schdule[i].trainData);
+  // T.trainData.firsttraintime
   trainArray.push(T);
   }
 }
@@ -43,19 +44,19 @@ var calculateNextArrival = function () {
 class Train {
   constructor(trainID, TD) {
     if (TD === undefined) {
+      this.test = "test string"
       //get the data from form
       let name = $('#name').val();
       let destination = $('#destination').val();
       let firstTrainTime = $('#firstTrainTime').val();
       let frequency = $('#frequency').val();
       let minutesAway = $('#minutesAway').val();
-      // let firstTrain = moment({ hour:firstTrain.splice(0,2), minute:firstTrainTime.splice(2,2) });
-      // console.log(firstTrain)
       this.trainData = { name: name, destination: destination, firsttraintime: firstTrainTime, frequency: frequency, minAway: minutesAway, logged: false }
     } else{
       this.trainData = TD;
     }
     this.id = trainID;
+    this.calculateTimeTonextTrain()
     //createNew Row and columns within and populate it with data from form
     this.newDiv = $('<div>').attr('class', `row Train`).attr('id', `${trainID}`);
     this.itemName = $('<h6>').attr('class', 'col-sm-2');
@@ -97,7 +98,27 @@ class Train {
 
   }
 
+  calculateTimeTonextTrain(){
+    let firstTime = moment().set("hour", parseInt(this.trainData.firsttraintime.slice(0,2)))
+    .set("minute", parseInt(this.trainData.firsttraintime.slice(2)));
+    let currentTime =moment();
+    let difference = currentTime.diff(firstTime, "minute");
+    this.trainData.minAway = this.trainData.frequency*(divide(difference,this.trainData.frequency)+1)-difference
+    console.log(`train is ${this.trainData.frequency*(divide(difference,this.trainData.frequency)+1)-difference} min away`)
+     }
 
+
+
+}
+
+//needs to calculate the largest number that go
+var divide = function(a, b){
+if(a%b>0){
+return (a-(a%b))/b
+}
+else{
+  return a/b;
+}
 
 }
 
