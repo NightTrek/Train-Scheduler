@@ -58,7 +58,7 @@ class Train {
     this.id = trainID;
     this.calculateTimeTonextTrain()
     //createNew Row and columns within and populate it with data from form
-    this.newDiv = $('<div>').attr('class', `row Train`).attr('id', `${trainID}`);
+    this.newDiv = $('<div>').attr('class', `row Train`);
     this.itemName = $('<h6>').attr('class', 'col-sm-2');
     this.itemName.text(this.trainData.name);
     this.itemDestination = $('<h7>').attr('class', 'col-sm-2');
