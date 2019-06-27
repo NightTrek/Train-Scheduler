@@ -103,10 +103,17 @@ class Train {
     let firstTime = moment().set("hour", parseInt(this.trainData.firsttraintime.slice(0,2)))
     .set("minute", parseInt(this.trainData.firsttraintime.slice(2)));
     let currentTime =moment();
+
     let difference = currentTime.diff(firstTime, "minute");
+    if(difference<0){
+      this.trainData.minAway = difference*(-1)
+    }
+    else{
+    console.log(difference)
     this.trainData.minAway = this.trainData.frequency*(divide(difference,this.trainData.frequency)+1)-difference
     console.log(`train is ${this.trainData.frequency*(divide(difference,this.trainData.frequency)+1)-difference} min away`)
      }
+    }
 
 
 
