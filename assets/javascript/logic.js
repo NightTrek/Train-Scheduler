@@ -110,7 +110,7 @@ class Train {
     }
     else{
     console.log(difference)
-    this.trainData.minAway = this.trainData.frequency*(divide(difference,this.trainData.frequency)+1)-difference
+    this.trainData.minAway = Math.floor(this.trainData.frequency*(divide(difference,this.trainData.frequency)+1)-difference)
     console.log(`train is ${this.trainData.frequency*(divide(difference,this.trainData.frequency)+1)-difference} min away`)
      }
     }
