@@ -3,10 +3,11 @@ var firebaseConfig = {
   authDomain: "ucb-bootcamp-01.firebaseapp.com",
   databaseURL: "https://ucb-bootcamp-01.firebaseio.com",
   projectId: "ucb-bootcamp-01",
-  storageBucket: "",
+  storageBucket: "ucb-bootcamp-01.appspot.com",
   messagingSenderId: "359458899422",
   appId: "1:359458899422:web:84e04e4d40455d8d"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
